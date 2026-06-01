@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SALON BRAND REBUILD | RYUJI</title>
+<meta name="description" content="美容室経営者のための6ヶ月ブランド再構築プログラム。集客・求人・教育・単価を、経営者の思想、現場育成、採用広報の3方向から再設計します。">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=Montserrat:wght@300;400;600;700;900&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WJTCRJ3M1V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WJTCRJ3M1V');
+</script>
+
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  font-family:"Inter","Noto Sans JP",sans-serif;
+  background:#050505;
+  color:#f5f2ec;
+  line-height:1.85;
+  overflow-x:hidden;
+}
+
+body.is-locked{overflow:hidden}
+img,video{max-width:100%;display:block}
+a{color:inherit}
+
+/* =========================
+   INTRO MOVIE
+========================= */
+.intro{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  background:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:opacity 1.2s ease, visibility 1.2s ease;
+}
+.intro.is-hide{opacity:0;visibility:hidden;pointer-events:none}
+.intro video{width:100%;height:100%;object-fit:cover;opacity:.9}
+.intro-overlay{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.72)),
+    radial-gradient(circle at 72% 20%,rgba(138,115,88,.25),transparent 34%);
+}
+.intro-content{
+  position:absolute;
+  inset:0;
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:7vw 5vw;
+}
+.intro-copy{
+  font-family:"Montserrat","Inter",sans-serif;
+  font-size:clamp(48px,13vw,150px);
+  line-height:.88;
+  letter-spacing:-.075em;
+  font-weight:900;
+  color:#fff;
+  text-transform:uppercase;
+  mix-blend-mode:difference;
+}
+.intro-subcopy{
+  margin-top:24px;
+  color:rgba(255,255,255,.72);
+  font-size:14px;
+  letter-spacing:.18em;
+}
+.intro-enter{
+  margin-top:38px;
+  align-self:flex-start;
+  border:1px solid rgba(255,255,255,.45);
+  background:rgba(0,0,0,.22);
+  color:#fff;
+  padding:12px 22px;
+  border-radius:999px;
+  letter-spacing:.18em;
+  font-size:12px;
+  cursor:pointer;
+  backdrop-filter:blur(10px);
+}
+
+/* =========================
+   COMMON
+========================= */
+.section{position:relative;padding:120px 22px}
+.container{width:min(1080px,100%);margin:0 auto}
+.dark{background:#050505;color:#f5f2ec}
+.deep{background:#0b0b0b;color:#f5f2ec}
+.light{background:#f3eee6;color:#111}
+.noise::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:.07;
+  background-image:repeating-radial-gradient(circle at 20% 30%,rgba(255,255,255,.6) 0 1px,transparent 1px 5px);
+  mix-blend-mode:screen;
+}
+.eyebrow{
+  display:block;
+  color:#a9977f;
+  font-size:12px;
+  letter-spacing:.28em;
+  font-weight:800;
+  margin-bottom:20px;
+  text-transform:uppercase;
+}
+.light .eyebrow{color:#6d5840}
+.big-title,
+.cta-title{
+  font-family:"Montserrat","Inter",sans-serif;
+  font-size:clamp(48px,12vw,148px);
+  line-height:.92;
+  letter-spacing:-.08em;
+  margin:0;
+  font-weight:900;
+}
+.jp-title{
+  font-size:clamp(34px,8.5vw,92px);
+  line-height:1.08;
+  letter-spacing:-.075em;
+  margin:0;
+  font-weight:900;
+}
+.section-lead{
+  margin:30px 0 0;
+  max-width:780px;
+  color:#b9b2aa;
+  font-size:clamp(15px,2.8vw,20px);
+  font-weight:300;
+  letter-spacing:.04em;
+}
+.light .section-lead{color:#444}
+.copy-block p{margin:0 0 24px;color:#b9b2aa}
+.light .copy-block p{color:#333}
+.copy-block strong{color:#fff;font-size:1.08em}
+.light .copy-block strong{color:#111}
+
+/* =========================
+   HERO
+========================= */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:flex-end;
+  overflow:hidden;
+  padding:0 22px 88px;
+}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg video{width:100%;height:100%;object-fit:cover;opacity:.34;filter:grayscale(1) contrast(1.12)}
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:radial-gradient(circle at 70% 20%,rgba(138,115,88,.24),transparent 32%),linear-gradient(180deg,rgba(0,0,0,.18),#050505 90%);
+}
+.hero-sub{margin-top:28px;color:#d8d1c8;max-width:820px;font-size:clamp(16px,3vw,21px);font-weight:300;letter-spacing:.04em}
+.hero-sub strong{color:#fff;font-weight:700}
+
+/* =========================
+   STATEMENT / PAIN
+========================= */
+.statement-grid{display:grid;grid-template-columns:1fr .95fr;gap:70px;align-items:start}
+.statement-copy{font-size:clamp(42px,8vw,104px);line-height:1.02;letter-spacing:-.08em;font-weight:900}
+.pain-list{margin-top:64px;border-top:1px solid rgba(255,255,255,.13)}
+.pain-item{padding:28px 0;border-bottom:1px solid rgba(255,255,255,.13);font-size:clamp(20px,3.4vw,36px);line-height:1.45;letter-spacing:-.05em;font-weight:900;color:#f5f2ec}
+.pain-item span{display:block;color:#8a7358;font-family:"Montserrat","Inter",sans-serif;font-size:12px;letter-spacing:.22em;font-weight:900;margin-bottom:10px;text-transform:uppercase}
+.pain-note{margin-top:42px;max-width:820px;color:#c7bfb5;font-size:clamp(16px,2.6vw,22px);font-weight:500;line-height:1.75}
+
+/* =========================
+   PHILOSOPHY
+========================= */
+.philosophy-list{display:grid;gap:28px;margin-top:70px}
+.philosophy-item{border-top:1px solid rgba(255,255,255,.16);padding-top:26px;display:grid;grid-template-columns:.34fr 1.66fr;gap:24px}
+.philosophy-item span{color:#8a7358;font-size:13px;letter-spacing:.22em;font-weight:800}
+.philosophy-item p{margin:0;font-size:clamp(22px,5vw,52px);line-height:1.15;letter-spacing:-.05em;font-weight:900}
+
+/* =========================
+   ABOUT / CYCLE
+========================= */
+.feature-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.14);margin-top:54px}
+.feature-card{background:#0b0b0b;padding:24px;min-height:150px}
+.feature-card span{display:block;color:#8a7358;font-size:12px;letter-spacing:.16em;font-weight:900;margin-bottom:14px}
+.feature-card p{margin:0;color:#ddd;font-weight:700;line-height:1.6}
+
+/* =========================
+   TEAM
+========================= */
+.team-intro{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:end;margin-bottom:70px}
+.team-intro p{margin:0;color:#333}
+.team-map{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#111;border:1px solid #111;margin-top:44px}
+.team-map-card{background:#f3eee6;padding:24px;min-height:170px}
+.team-map-card b{display:block;font-size:22px;line-height:1.1;margin-bottom:16px;letter-spacing:-.04em}
+.team-map-card span{color:#6d5840;font-size:12px;letter-spacing:.18em;font-weight:900;text-transform:uppercase}
+.member-list{display:grid;gap:34px}
+.member-card{display:grid;grid-template-columns:.78fr 1.22fr;gap:42px;padding:42px;border:1px solid rgba(0,0,0,.14);background:#eee7dd}
+.member-name{font-family:"Montserrat","Inter",sans-serif;font-size:clamp(34px,6vw,68px);line-height:.95;letter-spacing:-.07em;font-weight:900;margin:0 0 12px}
+.member-role{color:#6d5840;font-size:12px;letter-spacing:.18em;font-weight:900;text-transform:uppercase;margin-bottom:26px}
+.member-catch{font-size:23px;line-height:1.45;font-weight:900;margin-bottom:22px;letter-spacing:-.04em}
+.member-body p{margin:0 0 18px;color:#333}
+.area-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.area-list span{border:1px solid rgba(0,0,0,.16);border-radius:999px;padding:7px 12px;font-size:12px;font-weight:700;color:#333;background:rgba(255,255,255,.25)}
+
+/* =========================
+   RESULTS
+========================= */
+.results-head{display:flex;justify-content:space-between;gap:40px;align-items:flex-end;margin-bottom:70px}
+.results-head p{max-width:440px;color:#555;margin:0}
+.result-wall{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:#111;border:1px solid #111}
+.result-box{min-height:175px;background:#f3eee6;padding:22px;display:flex;flex-direction:column;justify-content:space-between}
+.result-num{font-size:17px;line-height:1.55;font-weight:700;color:#111;letter-spacing:-.03em}
+.result-label{font-family:"Montserrat","Inter",sans-serif;font-size:22px;line-height:1.05;font-weight:900;color:#6d5840;letter-spacing:-.04em;margin-top:20px;text-transform:uppercase}
+
+/* =========================
+   SERVICE
+========================= */
+.service-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.14);margin-top:60px}
+.service-card{background:#050505;padding:30px;min-height:230px}
+.service-card .num{font-family:"Montserrat","Inter",sans-serif;color:#8a7358;font-weight:900;font-size:28px;letter-spacing:-.05em;margin-bottom:26px}
+.service-card h3{margin:0 0 14px;font-size:24px;line-height:1.2;letter-spacing:-.04em}
+.service-card p{margin:0;color:#aaa;font-size:15px;line-height:1.7}
+
+/* =========================
+   TARGET
+========================= */
+.target-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:52px;padding:0;list-style:none}
+.target-list li{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.035);padding:18px 20px;border-radius:14px;color:#ddd;font-weight:700}
+
+/* =========================
+   OFFER MONTH
+========================= */
+.offer-layout{display:grid;grid-template-columns:.85fr 1.15fr;gap:70px;align-items:start}
+.offer-panel{border:1px solid rgba(255,255,255,.14);padding:34px;background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.015));backdrop-filter:blur(10px);position:sticky;top:28px}
+.offer-panel h3{margin:0 0 16px;font-size:28px;letter-spacing:-.04em}
+.price{font-size:44px;line-height:1.05;font-weight:900;letter-spacing:-.06em;margin:20px 0 8px}
+.month-list{display:grid;gap:16px}
+.month-card{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.035);padding:24px;border-radius:18px}
+.month-card .month{display:block;color:#8a7358;font-size:12px;letter-spacing:.18em;font-weight:900;text-transform:uppercase;margin-bottom:10px}
+.month-card h3{font-size:22px;line-height:1.35;margin:0 0 12px;letter-spacing:-.04em}
+.month-card p{margin:0 0 16px;color:#aaa;font-size:15px;line-height:1.7}
+.deliverables{display:flex;flex-wrap:wrap;gap:8px}
+.deliverables span{font-size:12px;color:#ddd;border:1px solid rgba(255,255,255,.14);padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.04)}
+
+/* =========================
+   CLIENT VOICE
+========================= */
+.voice-head{display:flex;justify-content:space-between;gap:40px;align-items:flex-end;margin-bottom:70px}
+.voice-head p{max-width:460px;color:#b9b2aa;margin:0}
+.voice-list{display:grid;gap:18px}
+.voice-card{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.035);padding:34px;border-radius:22px;backdrop-filter:blur(8px)}
+.voice-q{color:#8a7358;font-size:12px;letter-spacing:.22em;font-weight:900;margin-bottom:18px;font-family:"Montserrat","Inter",sans-serif}
+.voice-card h3{margin:0 0 22px;font-size:clamp(22px,3vw,34px);line-height:1.45;letter-spacing:-.04em}
+.voice-a{color:#cfc7bd;font-size:15px;line-height:2}
+.voice-a p{margin:0 0 18px}
+.voice-a p:last-child{margin-bottom:0}
+.voice-em{color:#fff;font-weight:900}
+
+/* =========================
+   CTA
+========================= */
+.cta{min-height:86vh;display:flex;align-items:center;background:#000;text-align:center}
+.cta-title{font-size:clamp(45px,12vw,132px);margin:0 0 34px}
+.cta p{max-width:760px;margin:0 auto 36px;color:#aaa}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-width:270px;padding:18px 28px;border-radius:999px;background:#fff;color:#000;text-decoration:none;font-weight:900;letter-spacing:.08em;transition:.25s ease}
+.btn:hover{transform:translateY(-3px);opacity:.86}
+.line-icon{background:#06C755;color:#fff;width:32px;height:32px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:900}
+.footer{padding:34px 20px;text-align:center;color:#555;font-size:12px;background:#000}
+
+@media(max-width:900px){
+  .section{padding:88px 18px}
+  .hero{padding:0 18px 72px}
+  .statement-grid,.team-intro,.member-card,.offer-layout{grid-template-columns:1fr;gap:42px}
+  .target-list,.service-grid{grid-template-columns:1fr}
+  .feature-grid,.team-map{grid-template-columns:1fr}
+  .philosophy-item{grid-template-columns:1fr;gap:12px}
+  .results-head{display:block}
+  .results-head p{margin-top:22px}
+  .result-wall{grid-template-columns:1fr 1fr}
+  .result-box{min-height:155px;padding:18px}
+  .result-num{font-size:15px}
+  .result-label{font-size:18px}
+  .offer-panel{position:relative;top:auto;padding:24px}
+  .intro-content{padding:9vw 6vw}
+  .pain-item{padding:24px 0}
+  .voice-head{display:block}
+  .voice-head p{margin-top:22px}
+  .voice-card{padding:24px}
+  .voice-card h3{font-size:24px}
+}
+.member-image{margin-top:28px;overflow:hidden;border-radius:20px}
+.member-image img{width:100%;height:520px;object-fit:cover;filter:grayscale(.08) contrast(1.05)}
+</style>
+</head>
+
+<body class="is-locked">
+
+<div class="intro" id="intro">
+  <video id="introVideo" src="ryuji-ad.mp4" autoplay muted playsinline></video>
+  <div class="intro-overlay"></div>
+  <div class="intro-content">
+    <div class="intro-copy">SALON<br>REBUILD.</div>
+    <div class="intro-subcopy">世界観で選ばれるサロンへ。</div>
+    <button class="intro-enter" id="enterBtn">TAP FOR SOUND</button>
+  </div>
+</div>
+
+<main id="lp">
+
+  <section class="hero noise">
+    <div class="hero-bg"><video src="ryuji-ad.mp4" autoplay muted loop playsinline></video></div>
+    <div class="container">
+      <span class="eyebrow">SALON BRAND REBUILD</span>
+      <!--<h1 class="big-title">SALON<br>BRAND<br>REBUILD</h1>-->
+      <p class="hero-sub">
+        <strong>世界観で選ばれるサロンへ。</strong><br><br>
+        集客・求人・教育・単価を、<br>
+        経営者の思想、現場育成、採用広報の3方向から再設計する。<br><br>
+        プレイヤー経営から、<br>
+        人が育ち、人が集まり、選ばれ続けるブランド経営へ。
+      </p>
+    </div>
+  </section>
+
+  <section class="section dark noise">
+    <div class="container statement-grid">
+      <div class="statement-copy">
+        技術だけでは、<br>もう選ばれない。
+      </div>
+      <div class="copy-block">
+        <p>うまい美容師は増えた。いいサロンも増えた。SNSも、Hot Pepper Beautyも、求人ページも、どこも似たように整ってきた。</p>
+        <p><strong>それでも選ばれるサロンには、必ず“空気”がある。</strong></p>
+        <p>その空気は、内装やロゴだけで作られるものではない。経営者の思想、スタッフが育つ教育、求職者に届く求人導線、お客様に選ばれる集客導線、価格ではなく価値で選ばれる単価設計。それらがひとつにつながった時、サロンはただの店舗ではなく“ブランド”になる。</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="pain-list">
+        <div class="pain-item"><span>PAIN 01</span>スタッフはいる。<br>でも、思ったように育たない。</div>
+        <div class="pain-item"><span>PAIN 02</span>求人したい。<br>でも、何を打ち出せばいいか分からない。</div>
+        <div class="pain-item"><span>PAIN 03</span>集客はしている。<br>でも、価格やクーポンに頼ってしまう。</div>
+        <div class="pain-item"><span>PAIN 04</span>幹部を作りたい。<br>でも、任せる仕組みがない。</div>
+        <div class="pain-item"><span>PAIN 05</span>女性スタッフに長く活躍してほしい。<br>でも、キャリアの未来を見せられていない。</div>
+        <div class="pain-item"><span>PAIN 06</span>会社をブランドにしたい。<br>でも、自分の思想がまだ言葉になっていない。</div>
+      </div>
+      <p class="pain-note">その悩みは、努力不足ではない。集客・求人・教育・組織・単価が、ひとつのブランド設計としてつながっていないだけ。</p>
+    </div>
+  </section>
+
+  <section class="section deep philosophy">
+    <div class="container">
+      <span class="eyebrow">PHILOSOPHY</span>
+      <h2 class="jp-title">ブランドは、<br>空気で決まる。</h2>
+      <div class="philosophy-list">
+        <div class="philosophy-item"><span>001</span><p>選ばれる理由を、感覚ではなく設計する。</p></div>
+        <div class="philosophy-item"><span>002</span><p>集客・求人・教育・単価を、ひとつの世界観でつなぐ。</p></div>
+        <div class="philosophy-item"><span>003</span><p>サロンを、ただの店舗ではなく“人が育つブランド”へ変える。</p></div>
+        <div class="philosophy-item"><span>004</span><p>経営者の思想を、現場で動く仕組みに変える。</p></div>
+        <div class="philosophy-item"><span>005</span><p>人が集まり、人が育ち、人が残る循環をつくる。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark noise">
+    <div class="container statement-grid">
+      <div>
+        <span class="eyebrow">ABOUT</span>
+        <h2 class="jp-title">SALON<br>BRAND<br>REBUILD</h2>
+      </div>
+      <div class="copy-block">
+        <p>美容室の集客・求人・教育・単価・組織を、ブランドの軸から再設計する6ヶ月プログラムです。</p>
+        <p>単なるコンサルティングではありません。経営者の思想を言語化し、女性スタッフが長く活躍できるキャリアを整え、採用・集客・広報導線を現場で動く形に落とし込みます。</p>
+        <p>目指すのは、一時的な売上改善ではなく、人が育ち、人が集まり、選ばれ続けるサロンブランドです。</p>
+        <p><strong>ブランドは、見た目ではなく循環で決まる。</strong></p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="feature-grid">
+        <div class="feature-card"><span>CUSTOMER</span><p>お客様に選ばれる集客を設計します。</p></div>
+        <div class="feature-card"><span>RECRUIT</span><p>求職者に届く求人を整えます。</p></div>
+        <div class="feature-card"><span>EDUCATION</span><p>スタッフが育つ教育を構築します。</p></div>
+        <div class="feature-card"><span>CAREER</span><p>女性が長く働けるキャリアを描きます。</p></div>
+        <div class="feature-card"><span>PRICE</span><p>価値で選ばれる単価設計へ変えます。</p></div>
+      </div>
+      <div class="copy-block">
+        <p>これらは、別々の施策ではありません。</p>
+        <p>すべては、サロンが何を信じ、誰を育て、どんな未来を見せるのかというブランドの軸から生まれます。</p>
+        <p>SALON BRAND REBUILDは、その軸を言語化し、現場で動く導線へ変えるプログラムです。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section light">
+    <div class="container">
+      <div class="team-intro">
+        <div>
+          <span class="eyebrow">TEAM</span>
+          <h2 class="jp-title">3つの視点から、<br>サロンブランドを再構築する。</h2>
+        </div>
+        <p>思想をつくるRyuji。人を育てるChihiro。導線を整えるMomoka。この3方向が揃って初めて、サロンブランドは現場で循環し始める。</p>
+      </div>
+
+      <div class="team-map">
+        <div class="team-map-card"><span>BRAND</span><b>思想をつくる</b><p>Ryuji</p></div>
+        <div class="team-map-card"><span>EDUCATION</span><b>人を育てる</b><p>Chihiro</p></div>
+        <div class="team-map-card"><span>FLOW</span><b>導線を整える</b><p>Momoka</p></div>
+      </div>
+
+      <div class="member-list" style="margin-top:60px;">
+        <article class="member-card">
+          <div>
+            <h3 class="member-name">Ryuji<br>Azuma</h3>
+            <div class="member-role">Brand Producer / Organization Design</div>
+            <div class="member-image"><img src="IMG_2540.jpg" alt="Ryuji Azuma"></div>
+          </div>
+          <div class="member-body">
+            <div class="member-catch">経営者の思想を、選ばれるブランドへ変える。</div>
+            <p>顧客ゼロから表参道へ進出。1人サロンから50名規模、7店舗展開へ。求人広告費ほぼ0円で40名採用。複数社コンサルで初年度利益化を実現。</p>
+            <p>経営者の中にある思想を言語化し、教育・組織・求人・集客がつながるブランドの軸を作ります。</p>
+            <div class="area-list"><span>ブランドコンセプト設計</span><span>思想言語化</span><span>組織構築</span><span>幹部育成</span><span>単価設計</span><span>教育・求人・集客の接続設計</span></div>
+          </div>
+        </article>
+
+        <article class="member-card">
+          <div>
+            <h3 class="member-name">Chihiro</h3>
+            <div class="member-role">Women Career Build / Staff Development</div>
+            <div class="member-image"><img src="IMG_2543.jpg" alt="Chihiro"></div>
+          </div>
+          <div class="member-body">
+            <div class="member-catch">女性スタッフが辞めずに育つ、現場の未来を設計。</div>
+            <p>取締役。3人の子供を育てるママ美容師。3店舗を任されるエリアマネージャー。パートタイムで月売上300万円を達成し、200万・300万プレイヤーを輩出。</p>
+            <p>本当は繊細で、根はネガティブ。だからこそ、人の不安が分かります。その不安をポジティブな行動へ変換し、スタッフの成長に寄り添う現場型リーダーです。</p>
+            <div class="area-list"><span>女性スタッフ定着</span><span>ママ美容師キャリア設計</span><span>若手育成</span><span>店販売上改善</span><span>女性幹部育成</span><span>モチベーション設計</span></div>
+          </div>
+        </article>
+
+        <article class="member-card">
+          <div>
+            <h3 class="member-name">Momoka</h3>
+            <div class="member-role">Recruit Brand Design / PR Flow</div>
+            <div class="member-image"><img src="IMG_2541.jpg" alt="Momoka"></div>
+          </div>
+          <div class="member-body">
+            <div class="member-catch">採用・集客・ブランディングを、現場で動く導線へ変える。</div>
+            <p>美容業界にて、採用・集客・ブランディングを横断した実務改善を担当。新卒採用では、従来平均3〜4名だった採用人数を13名まで拡大。</p>
+            <p>Hot Pepper Beautyの運用改善により、東京店舗では前年比280%の売上成長を達成。サロンの魅力を、採用・集客・広報の導線に変えます。</p>
+            <p>感覚で行っていた発信や資料を、求職者・学生・お客様に伝わる形へ整え、現場で実行できる仕組みに落とし込みます。</p>
+            <div class="area-list"><span>採用導線設計</span><span>求人パンフレット制作</span><span>HPB導線改善</span><span>Instagram改善</span><span>入社前フォロー設計</span><span>マニュアル整備</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section light results">
+    <div class="container">
+      <div class="results-head">
+        <div>
+          <span class="eyebrow">TEAM PROVEN RESULTS</span>
+          <h2 class="jp-title">数字は、<br>思想の結果。</h2>
+        </div>
+        <p>美容室経営の現場で積み重ねてきた実績。説明ではなく、結果で示す。</p>
+      </div>
+
+      <div class="result-wall">
+        <div class="result-box"><div class="result-num">顧客ゼロから表参道へ進出</div><div class="result-label">FROM ZERO</div></div>
+        <div class="result-box"><div class="result-num">表参道出店1年で前年比280%成長</div><div class="result-label">280% GROWTH</div></div>
+        <div class="result-box"><div class="result-num">1人サロンから50名規模へ</div><div class="result-label">TEAM BUILD</div></div>
+        <div class="result-box"><div class="result-num">7店舗へ拡大</div><div class="result-label">MULTI SALON</div></div>
+        <div class="result-box"><div class="result-num">求人広告費ほぼ0円で50名採用</div><div class="result-label">ZERO COST RECRUIT</div></div>
+        <div class="result-box"><div class="result-num">パートタイムで月売上300万円達成</div><div class="result-label">3M PART-TIME SALES</div></div>
+        <div class="result-box"><div class="result-num">200万・300万プレイヤーを多数輩出</div><div class="result-label">PLAYER DEVELOPMENT</div></div>
+        <div class="result-box"><div class="result-num">複数社コンサルで初年度利益化達成</div><div class="result-label">PROFITABLE CONSULTING</div></div>
+        <div class="result-box"><div class="result-num">HPB導線改善で全店舗閲覧数向上</div><div class="result-label">HPB FLOW DESIGN</div></div>
+        <div class="result-box"><div class="result-num">ガイダンス資料コストを一冊単価1000円から65円へ削減</div><div class="result-label">COST REDUCTION</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark noise">
+    <div class="container">
+      <span class="eyebrow">SERVICE CONTENT</span>
+      <h2 class="jp-title">6ヶ月で、<br>再設計するもの。</h2>
+      <div class="service-grid">
+        <div class="service-card"><div class="num">01</div><h3>Brand Concept Design</h3><p>経営者の思想、サロンの価値、選ばれる理由を言語化します。</p></div>
+        <div class="service-card"><div class="num">02</div><h3>Organization Build</h3><p>幹部・責任者・教育体制を整え、属人的な経営から脱却します。</p></div>
+        <div class="service-card"><div class="num">03</div><h3>Women Career Build</h3><p>女性スタッフが長く働き、売上・役職・人生を諦めないキャリアを設計します。</p></div>
+        <div class="service-card"><div class="num">04</div><h3>Recruit Brand Design</h3><p>求人パンフレット、採用導線、入社前フォローを整え、求職者に選ばれる状態を作ります。</p></div>
+        <div class="service-card"><div class="num">05</div><h3>Customer Flow Design</h3><p>Hot Pepper Beauty、Instagram、HPの導線を見直し、集客につながる見せ方へ改善します。</p></div>
+        <div class="service-card"><div class="num">06</div><h3>Price / Menu Design</h3><p>単価・メニュー・クーポンの見せ方を見直し、価格ではなく価値で選ばれる状態を作ります。</p></div>
+        <div class="service-card"><div class="num">07</div><h3>Action Plan</h3><p>90日間の実行計画を作成し、改善を現場で動かせる形に落とし込みます。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section deep">
+    <div class="container statement-grid">
+      <div>
+        <span class="eyebrow">FOR YOU</span>
+        <h2 class="jp-title">このプログラムが<br>向いている方</h2>
+      </div>
+      <ul class="target-list">
+        <li>プレイヤーでありながら経営をしている美容室経営者</li>
+        <li>スタッフ育成に課題を感じている方</li>
+        <li>求人を安定させたい方</li>
+        <li>女性スタッフが長く働ける環境を作りたい方</li>
+        <li>幹部や責任者を育てたい方</li>
+        <li>Hot Pepper BeautyやInstagramの導線を見直したい方</li>
+        <li>自社のブランドを言語化したい方</li>
+        <li>価格ではなく価値で選ばれるサロンにしたい方</li>
+        <li>集客・求人・教育を一つの軸で整えたい方</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section dark noise">
+    <div class="container offer-layout">
+      <div class="offer-panel">
+        <span class="eyebrow">OFFER</span>
+        <h2 class="jp-title">BRAND<br>REBUILD<br>PROGRAM</h2>
+        <div class="price">6ヶ月契約</div>
+        <p class="section-lead">まずはZoomにて60分の無料相談を行います。</p>
+      </div>
+
+      <div class="month-list">
+        <div class="month-card"><span class="month">Month 1</span><h3>現在地診断 / ブランド軸の言語化</h3><p>経営者の思想、サロンの課題、現在の集客・求人・教育導線を整理します。選ばれる理由と、今足りていない構造を明確にします。</p><div class="deliverables"><span>ブランド診断シート</span><span>課題整理マップ</span><span>ブランドコンセプト草案</span><span>優先改善ポイント</span></div></div>
+        <div class="month-card"><span class="month">Month 2</span><h3>教育・組織構築</h3><p>スタッフが育つ教育導線と、幹部・責任者の役割を設計します。プレイヤー経営者が一人で抱えない組織へ整えます。</p><div class="deliverables"><span>教育導線設計</span><span>幹部役割表</span><span>会議体設計</span><span>面談項目</span><span>責任者制度</span></div></div>
+        <div class="month-card"><span class="month">Month 3</span><h3>女性キャリア / 現場育成設計</h3><p>女性スタッフが長く働けるキャリア設計、若手育成、店販・売上改善、マネージャー育成を整えます。</p><div class="deliverables"><span>女性キャリア設計</span><span>若手育成チェックリスト</span><span>店販改善シート</span><span>現場マネジメント改善案</span></div></div>
+        <div class="month-card"><span class="month">Month 4</span><h3>採用導線 / 求人パンフレット設計</h3><p>学生・求職者目線で、求人ページ、ガイダンス資料、求人パンフレット、入社前フォローを設計します。</p><div class="deliverables"><span>採用導線マップ</span><span>求人パンフレット構成</span><span>ガイダンス資料構成</span><span>入社前フォロー文面</span></div></div>
+        <div class="month-card"><span class="month">Month 5</span><h3>集客導線 / HPB・Instagram改善</h3><p>Hot Pepper Beauty、Instagram、HPの見せ方を見直し、お客様に選ばれる導線へ改善します。</p><div class="deliverables"><span>HPB改善チェックリスト</span><span>Instagram改善案</span><span>クーポン・メニュー改善案</span><span>予約導線改善案</span><span>スタッフページ改善案</span></div></div>
+        <div class="month-card"><span class="month">Month 6</span><h3>90日アクションプラン / ブランド運用化</h3><p>半年間で設計した内容を、現場で運用できる90日アクションプランに落とし込みます。</p><div class="deliverables"><span>90日アクションプラン</span><span>運用チェックリスト</span><span>優先順位表</span><span>成長ロードマップ</span><span>継続改善プラン</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section deep noise">
+    <div class="container">
+      <div class="voice-head">
+        <div>
+          <span class="eyebrow">CLIENT VOICE</span>
+          <h2 class="jp-title">変化は、<br>現場に現れる。</h2>
+        </div>
+        <p>
+          実際にBRAND REBUILD PROGRAMを導入したサロンオーナーの声。
+          教育・集客・求人・売上に、現場で確かな変化が生まれています。
+        </p>
+      </div>
+
+      <div class="voice-list">
+        <article class="voice-card"><div class="voice-q">Q.01</div><h3>BRAND REBUILD PROGRAMを受けて、どんな変化がありましたか？</h3><div class="voice-a"><p>自分自身のマインドセットが大きく変わりました。</p><p>特に大きかったのは、停滞していたスタッフ教育が改善されたことです。</p><p>BRAND REBUILD PROGRAMを受けてから、<span class="voice-em">スタッフ売上は約2.1倍</span>まで成長し、数字だけでなく、スタッフの意識や行動面にも変化が生まれました。</p></div></article>
+        <article class="voice-card"><div class="voice-q">Q.02</div><h3>集客にはどんな変化がありましたか？</h3><div class="voice-a"><p>閑散期の影響を受けにくくなり、激戦エリアでも安定して新規集客ができるようになりました。</p><p>価格ではなく、ブランドや世界観で選ばれる感覚が強くなったと感じています。</p></div></article>
+        <article class="voice-card"><div class="voice-q">Q.03</div><h3>求人には変化がありましたか？</h3><div class="voice-a"><p>ブランド設計を見直したことで、県内の美容学校との接点も増えました。</p><p>その結果、オープン当初と比較して、<span class="voice-em">スタッフ数は約2倍</span>まで増加しました。</p></div></article>
+        <article class="voice-card"><div class="voice-q">Q.04</div><h3>売上にはどんな変化がありましたか？</h3><div class="voice-a"><p>年商7,000万円弱だった売上が、現在は<span class="voice-em">約8,500万円着地</span>を見込める状態まで成長しています。</p><p>単なる集客ではなく、組織・教育・ブランドが整ったことで、安定した上昇傾向へ変化しました。</p></div></article>
+        <article class="voice-card"><div class="voice-q">Q.05</div><h3>取り組みの中で、難しかったことはありますか？</h3><div class="voice-a"><p>特別難しい施策があったわけではありません。</p><p>ただ、どの取り組みにおいても、継続して積み重ねることの重要性は強く感じました。</p></div></article>
+        <article class="voice-card"><div class="voice-q">Q.06</div><h3>導入を迷っている方へメッセージをお願いします。</h3><div class="voice-a"><p>もし迷われているのであれば、一度相談してみることをおすすめします。</p><p>表面的なノウハウではなく、組織・教育・集客・ブランドまで、本質的に見直すきっかけになると思います。</p><p>実際に、自分自身のサロン運営に対する考え方も大きく変わりました。</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta noise">
+    <div class="container">
+      <span class="eyebrow">LAST CTA</span>
+      <h2 class="cta-title">REBUILD<br>YOUR<br>SALON.</h2>
+      <p>
+        世界観で選ばれるサロンへ。<br>
+        集客・求人・教育・単価を、ブランドの軸から再設計します。<br><br>
+        半年間で、プレイヤー依存の経営から、<br>
+        人が育ち、人が集まり、選ばれ続けるブランド経営へ導きます。
+      </p>
+      <a href="https://line.me/ti/p/3ZINFJV_4O" target="_blank" class="btn" onclick="gtag('event','line_click',{'event_category':'engagement','event_label':'btnclick_salon_brand_rebuild'});">
+        <span class="line-icon">LINE</span>
+        無料相談に申し込む
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">© SALON BRAND REBUILD</footer>
+
+<script>
+const intro = document.getElementById('intro');
+const introVideo = document.getElementById('introVideo');
+const enterBtn = document.getElementById('enterBtn');
+
+let hasEntered = false;
+let transitionTimer = null;
+let isRestartMode = false;
+
+function enterLP(){
+  if(hasEntered) return;
+
+  hasEntered = true;
+
+  intro.classList.add('is-hide');
+  document.body.classList.remove('is-locked');
+
+  setTimeout(() => {
+    intro.style.display = 'none';
+  }, 1300);
+}
+
+function playWithSound(e){
+  if(e) e.stopPropagation();
+
+  if(transitionTimer){
+    clearTimeout(transitionTimer);
+  }
+
+  introVideo.muted = false;
+  introVideo.currentTime = 0;
+  introVideo.play();
+  enterBtn.textContent = 'NEXT';
+
+  if(!isRestartMode){
+    transitionTimer = setTimeout(() => {
+      enterLP();
+    }, 5000);
+
+    isRestartMode = true;
+
+  } else {
+    transitionTimer = setTimeout(() => {
+      enterLP();
+    }, 1000);
+  }
+}
+
+enterBtn.addEventListener('click', playWithSound);
+introVideo.addEventListener('ended', enterLP);
+transitionTimer = setTimeout(() => {
+  enterLP();
+}, 8000);
+</script>
+</body>
+</html>
